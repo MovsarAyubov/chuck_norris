@@ -7,5 +7,5 @@ class JokeAboutChuck extends Equatable {
   const JokeAboutChuck({required this.value, required this.id});
 
   @override
-  List<Object?> get props => [value, id];
+  List<Object> get props => [value, id];
 }

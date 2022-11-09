@@ -1,18 +1,16 @@
 import 'package:chuck_norris/core/error/exceptions.dart';
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 
 import '../../core/error/failure.dart';
-import '../../core/platform/network_info.dart';
 import '../../domain/entities/joke_about_chuck.dart';
 import '../../domain/repositories/joke_repository.dart';
-import '../sources/jokes_remote_data_sources.dart';
+import '../sources/jokes_remote_data_source.dart';
 
+@LazySingleton(as: JokesRepository)
 class JokeRepositoryImplement implements JokesRepository {
-  final JokeRemoteDataSourseImplement jokeRemoteDataSourseImplement;
-  final NetworkInfo networkInfo;
-
-  JokeRepositoryImplement(
-      {required this.jokeRemoteDataSourseImplement, required this.networkInfo});
+  final JokeRemoteDataSourse jokeRemoteDataSourseImplement;
+  const JokeRepositoryImplement({required this.jokeRemoteDataSourseImplement});
 
   @override
   Future<Either<Failure, JokeAboutChuck>> getJoke() async {

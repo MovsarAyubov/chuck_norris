@@ -8,6 +8,12 @@ abstract class JokeState extends Equatable {
   List<Object?> get props => [];
 }
 
+class ErrorJokeState extends JokeState {
+  ErrorJokeState();
+  @override
+  List<Object?> get props => [];
+}
+
 class NoJokeState extends JokeState {
   NoJokeState();
   @override
